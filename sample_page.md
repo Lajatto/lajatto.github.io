@@ -60,7 +60,25 @@ GROUP BY
 </a>
 <img src="images/Q222.jpg?raw=true"/>
 
-### 3. Support the selection of appropriate statistical tools and techniques
+### 3. Checking gsearch and nonbrand monthly trend for sessions and orders filtered by device type. 
+
+```SQL
+SELECT
+	website_sessions.device_type,
+    MONTH(website_sessions.created_at) AS month, 
+    COUNT(DISTINCT website_sessions.website_session_id) AS monthly_sessions,
+    COUNT(orders.items_purchased) AS total_orders
+FROM 
+	website_sessions 
+		LEFT JOIN orders 
+			ON website_sessions.website_session_id = orders.website_session_id 
+WHERE 
+	website_sessions.utm_source = 'gsearch'
+    AND website_sessions.created_at < '2012-11-27'
+    AND website_sessions.utm_campaign IN ('nonbrand')
+GROUP BY 
+	1, 2;
+```
 
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
