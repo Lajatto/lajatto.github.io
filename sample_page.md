@@ -369,7 +369,7 @@ GROUP BY
 <a href="https://lookerstudio.google.com/reporting/80eeec39-cb33-4408-8951-e6b411af94d5">
 	<img src="images/Q8.jpg?raw=true"/></a>
 
-##Insights
+## Insights
 <ul>
   <li>There is steady growth with the website sessions and orders from March to November.</li>
   <li>Nonbrand campaigns have brought more web visitors than the brand campaigns.</li>
