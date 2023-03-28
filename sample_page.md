@@ -166,7 +166,7 @@ GROUP BY
 ### 6. Comparing conversion rate between two landing pages for a set period of time. 
 ```SQL
 SELECT
-	MIN(website_pageview_id) AS first_test_pv
+MIN(website_pageview_id) AS first_test_pv
 FROM website_pageviews
 WHERE pageview_url = '/lander-1';
 
@@ -232,7 +232,7 @@ GROUP BY 1;
 SELECT
     website_sessions.website_session_id, 
     website_pageviews.pageview_url, 
-    -- website_pageviews.created_at AS pageview_created_at, 
+    website_pageviews.created_at AS pageview_created_at, 
     CASE WHEN pageview_url = '/home' THEN 1 ELSE 0 END AS homepage,
     CASE WHEN pageview_url = '/lander-1' THEN 1 ELSE 0 END AS custom_lander,
     CASE WHEN pageview_url = '/products' THEN 1 ELSE 0 END AS products_page,
