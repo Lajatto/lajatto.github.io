@@ -56,8 +56,9 @@ GROUP BY
 	1, 2;
 ```
 <a href="https://lookerstudio.google.com/reporting/e59a198e-cc2d-478d-b659-3dece8702153">
-<img src="images/Q2.jpg?raw=true"/>
+<img src="images/Q22.jpg?raw=true"/>
 </a>
+<img src="images/Q222.jpg?raw=true"/>
 
 ### 3. Support the selection of appropriate statistical tools and techniques
 
