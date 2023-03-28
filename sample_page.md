@@ -64,7 +64,7 @@ GROUP BY
 
 ```SQL
 SELECT
-	website_sessions.device_type,
+    website_sessions.device_type,
     MONTH(website_sessions.created_at) AS month, 
     COUNT(DISTINCT website_sessions.website_session_id) AS monthly_sessions,
     COUNT(orders.items_purchased) AS total_orders
