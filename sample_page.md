@@ -12,7 +12,7 @@
   <li>website_sessions</li>
 </ul>
 
-## Click on the images to view the reports on Google Looker Studio. <br>
+## Click on the images to view the reports on Google Looker Studio.<br>
 Limitations: Data is from March 2012 to November 2012 (2012-11-27). 
 
 ### 1.  Pull monthly trends for gsearch sessions and orders so that we can showcase the growth here.
