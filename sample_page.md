@@ -367,7 +367,7 @@ GROUP BY
 	1,2;
 ```
 <a href="https://lookerstudio.google.com/reporting/80eeec39-cb33-4408-8951-e6b411af94d5">
-<img src="images/Q8.jpg?raw=true"/>
+	<img src="images/Q8.jpg?raw=true"/></a>
 
 ##Insights
 <ul>
