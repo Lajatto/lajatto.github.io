@@ -86,7 +86,7 @@ GROUP BY
 
 ```SQL
 SELECT
-	YEAR(website_sessions.created_at) AS year,
+    YEAR(website_sessions.created_at) AS year,
     MONTH(website_sessions.created_at) AS month, 
     COUNT(DISTINCT CASE WHEN website_sessions.utm_source = 'gsearch' THEN website_sessions.website_session_id ELSE NULL END) AS gsearch_paid_sessions,
     COUNT(DISTINCT CASE WHEN website_sessions.utm_source = 'bsearch' THEN website_sessions.website_session_id ELSE NULL END) AS bsearch_paid_sessions,
