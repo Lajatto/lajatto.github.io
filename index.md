@@ -4,7 +4,7 @@
 
 ### SQL
 
-[Website Traffic Analysis using SQL](project_1.md)
+[Website Traffic Analysis using SQL](web_analysis_using_sql/sql1.md)
 <img src="images/website-analysis.jpg?raw=true"/>
 
 ---
