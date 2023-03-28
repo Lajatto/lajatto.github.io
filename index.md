@@ -2,9 +2,9 @@
 
 ---
 
-### Website Traffic Analysis using SQL
+### Mac's Portfolio
 
-[Project 1 Title](/sample_page)
+[Website Traffic Analysis using SQL](/sample_page)
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
