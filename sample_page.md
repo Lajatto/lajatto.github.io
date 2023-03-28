@@ -104,5 +104,64 @@ GROUP BY
 <a href="https://lookerstudio.google.com/reporting/4ab05325-c81c-479e-8698-d547e7378491">
 <img src="images/Q4.jpg?raw=true"/>
 
+### 5. Pulling sessions to orders conversion rates per month for the first 8 months of the website. 
+```SQL
+CREATE TEMPORARY TABLE session_to_ty
+SELECT
+	website_sessions.website_session_id, 
+	website_pageviews.pageview_url, 
+	website_pageviews.created_at AS pageview_created_at,
+    CASE WHEN website_pageviews.pageview_url = '/thank-you-for-your-order' THEN 1 ELSE 0 END as ty_page
+FROM 
+	website_sessions
+		LEFT JOIN website_pageviews 
+			ON website_sessions.website_session_id = website_pageviews.website_session_id 
+WHERE
+	 website_sessions.created_at < '2012-11-27'
+GROUP BY 
+	1, 2, 3;
+
+SELECT* 
+FROM session_to_ty;
+
+-- create temp table for only the sessions that made it to ty page
+CREATE TEMPORARY TABLE conversion_table
+SELECT 
+	website_session_id, 
+    MAX(ty_page) AS TY
+FROM (
+SELECT
+	website_sessions.website_session_id, 
+	website_pageviews.pageview_url, 
+	website_pageviews.created_at AS pageview_created_at,
+    CASE WHEN website_pageviews.pageview_url = '/thank-you-for-your-order' THEN 1 ELSE 0 END as ty_page
+FROM 
+	website_sessions
+		LEFT JOIN website_pageviews 
+			ON website_sessions.website_session_id = website_pageviews.website_session_id 
+WHERE
+	 website_sessions.created_at < '2012-11-27'
+GROUP BY 
+	1, 2, 3
+) made_ty
+GROUP BY 
+	1;
+
+-- create conversion rate 
+SELECT 
+	MONTH(website_sessions.created_at) AS month,
+	COUNT(DISTINCT conversion_table.website_session_id) AS sessions,
+	COUNT(DISTINCT CASE WHEN conversion_table.TY = 1 THEN conversion_table.website_session_id ELSE NULL END) AS orders,
+    COUNT(DISTINCT CASE WHEN conversion_table.TY = 1 THEN conversion_table.website_session_id ELSE NULL END)  / COUNT(DISTINCT website_sessions.website_session_id) AS conversion_rate
+FROM 
+	website_sessions
+		INNER JOIN conversion_table 
+			ON website_sessions.website_session_id = conversion_table.website_session_id 
+GROUP BY 
+	1;
+```
+<a href="https://lookerstudio.google.com/reporting/63dd1b31-841c-4c74-9710-fa1509f95223">
+<img src="images/Q5.jpg?raw=true"/>
+
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
