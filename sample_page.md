@@ -1,4 +1,4 @@
-## This can be your internal website page / project page
+## TSQL Website Traffic Analysis
 
 **Project description:** Website traffic analysis using SQL. Pulling monthly trends, checking the performance of various campaigns, checking conversion rates of landing pages, and doing full funnel conversion analysis. 
 
