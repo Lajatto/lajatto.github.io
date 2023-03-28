@@ -79,7 +79,7 @@ WHERE
 GROUP BY 
 	1, 2;
 ```
-<a href="[https://lookerstudio.google.com/reporting/e59a198e-cc2d-478d-b659-3dece8702153](https://lookerstudio.google.com/reporting/8e3734e2-4c7e-41f9-8f1d-92df96bdc59e)">
+<a href="https://lookerstudio.google.com/reporting/8e3734e2-4c7e-41f9-8f1d-92df96bdc59e">
 <img src="images/Q3.jpg?raw=true"/>
 
 ### 4. Provide a basis for further data collection through surveys or experiments
