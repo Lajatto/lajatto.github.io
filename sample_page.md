@@ -82,8 +82,25 @@ GROUP BY
 <a href="https://lookerstudio.google.com/reporting/8e3734e2-4c7e-41f9-8f1d-92df96bdc59e">
 <img src="images/Q3.jpg?raw=true"/>
 
-### 4. Provide a basis for further data collection through surveys or experiments
+### 4. Comparing website traffic sources (paid vs organic searches)
 
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+```SQL
+SELECT
+	YEAR(website_sessions.created_at) AS year,
+    MONTH(website_sessions.created_at) AS month, 
+    COUNT(DISTINCT CASE WHEN website_sessions.utm_source = 'gsearch' THEN website_sessions.website_session_id ELSE NULL END) AS gsearch_paid_sessions,
+    COUNT(DISTINCT CASE WHEN website_sessions.utm_source = 'bsearch' THEN website_sessions.website_session_id ELSE NULL END) AS bsearch_paid_sessions,
+    COUNT(DISTINCT CASE WHEN website_sessions.utm_source IS NULL AND http_referer IS NOT NULL THEN website_sessions.website_session_id ELSE NULL END) AS organic_search_sessions,
+    COUNT(DISTINCT CASE WHEN website_sessions.utm_source IS NULL AND http_referer IS NULL THEN website_sessions.website_session_id ELSE NULL END) AS direct_type_in_sessions
+FROM 
+	website_sessions 
+		LEFT JOIN orders 
+			ON website_sessions.website_session_id = orders.website_session_id 
+WHERE 
+    website_sessions.created_at < '2012-11-27'
+GROUP BY 
+	1, 2;
+```
+
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
