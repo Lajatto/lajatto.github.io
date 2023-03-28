@@ -40,7 +40,7 @@ GROUP BY
 
 ```SQL
 SELECT
-	website_sessions.utm_campaign,
+    website_sessions.utm_campaign,
     MONTH(website_sessions.created_at) AS month, 
     COUNT(DISTINCT website_sessions.website_session_id) AS monthly_sessions,
     COUNT(orders.items_purchased) AS total_orders
