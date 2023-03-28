@@ -55,7 +55,7 @@ WHERE
 GROUP BY 
 	1, 2;
 ```
-<a href="[https://lookerstudio.google.com/reporting/0eefca3d-9f2e-4e06-8a2d-11b8aa40fb49](https://lookerstudio.google.com/reporting/e59a198e-cc2d-478d-b659-3dece8702153)">
+<a href="https://lookerstudio.google.com/reporting/e59a198e-cc2d-478d-b659-3dece8702153">
 <img src="images/Q2.jpg?raw=true"/>
 </a>
 
