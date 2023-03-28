@@ -1,6 +1,6 @@
 ## SQL Website Traffic Analysis
 
-**Project description:** Website traffic analysis using SQL. Pulling monthly trends, checking the performance of various campaigns, checking conversion rates of landing pages, and doing full funnel conversion analysis. 
+**Project description:** Website traffic analysis using SQL. Pulling monthly trends, checking the performance of various campaigns, checking conversion rates of landing pages, and doing full funnel conversion analysis. I used Google Looker Studio to visualize the results that I got. I also used MYSQL to do my queries and manage my database. 
 
 ## The dataset that is used here is comprised of the following tables: 
 <ul>
@@ -11,6 +11,8 @@
   <li>website_pageviews</li>
   <li>website_sessions</li>
 </ul>
+
+## Click on the images to view the reports on Google Looker Studio. 
 
 ### 1.  Pull monthly trends for gsearch sessions and orders so that we can showcase the growth here.
 
@@ -377,7 +379,7 @@ GROUP BY
   <li>Gsearch paid sessions bring majority of our web traffic. We should invest more here.</li>
   <li>There's a huge gap between sessions and orders. Meaning we're not converting enough people from web visitor to customer.</li>
   <li>The lander-1 landing page has a higher conversion rate than the home page.</li>
-  <li>There is a decline in the amount of web visitors that reach our billing page from September to November. This also correlates to our sales.</li>
+  <li>There is a decline in the amount of web visitors that reach our billing pages from September to November. This also correlates to our sales.</li>
 </ul>
 
 
