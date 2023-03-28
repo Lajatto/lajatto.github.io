@@ -16,10 +16,21 @@
 
 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
 
-```javascript
-if (isAwesome){
-  return true
-}
+```SQL
+SELECT
+	YEAR(website_sessions.created_at) AS year,
+    MONTH(website_sessions.created_at) AS month, 
+    COUNT(DISTINCT website_sessions.website_session_id) AS monthly_sessions,
+    COUNT(orders.items_purchased) AS total_orders
+FROM 
+	website_sessions 
+		LEFT JOIN orders 
+			ON website_sessions.website_session_id = orders.website_session_id 
+WHERE 
+	website_sessions.utm_source = 'gsearch'
+    AND website_sessions.created_at < '2012-11-27'
+GROUP BY 
+	1,2;
 ```
 
 ### 2. Assess assumptions on which statistical inference will be based
