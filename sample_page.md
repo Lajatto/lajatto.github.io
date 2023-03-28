@@ -369,4 +369,16 @@ GROUP BY
 <a href="https://lookerstudio.google.com/reporting/80eeec39-cb33-4408-8951-e6b411af94d5">
 <img src="images/Q8.jpg?raw=true"/>
 
+##Insights
+<ul>
+  <li>There is steady growth with the website sessions and orders from March to November.</li>
+  <li>Nonbrand campaigns have brought more web visitors than the brand campaigns.</li>
+  <li>We're getting more desktop users than mobile users visit our website.</li>
+  <li>Gsearch paid sessions bring majority of our web traffic. We should invest more here.</li>
+  <li>There's a huge gap between sessions and orders. Meaning we're not converting enough people from web visitor to customer.</li>
+  <li>The lander-1 landing page has a higher conversion rate than the home page.</li>
+  <li>There is a decline in the amount of web visitors that reach our billing page from September to November. This also correlates to our sales.</li>
+</ul>
+
+
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
