@@ -6,8 +6,8 @@
 <img src="images/website-analysis.jpg?raw=true"/>
 
 ---
-[Project 2 Title](/pdf/sample_presentation.pdf)
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
+[Using R to help a bike sharing company understand their data](https://www.kaggle.com/code/macbenedicto/google-data-analytics-program-capstone-project-1/notebook)
+<img src="images/maxresdefault.jpg?raw=true"/>
 
 ---
 [Project 3 Title](http://example.com/)
