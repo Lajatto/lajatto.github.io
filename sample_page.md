@@ -32,7 +32,9 @@ WHERE
 GROUP BY 
 	1,2;
 ```
+<a href="https://lookerstudio.google.com/reporting/0eefca3d-9f2e-4e06-8a2d-11b8aa40fb49"
 <img src="images/Q1.jpg?raw=true"/>
+</a>
 
 ### 2. Assess assumptions on which statistical inference will be based
 
