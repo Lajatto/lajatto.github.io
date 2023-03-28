@@ -2,7 +2,7 @@
 
 ---
 
-[Website Traffic Analysis using SQL](/sample_page)
+[Website Traffic Analysis using SQL](/project_1)
 <img src="images/website-analysis.jpg?raw=true"/>
 
 ---
