@@ -10,7 +10,7 @@
 <img src="images/maxresdefault.jpg?raw=true"/>
 
 ---
-More projects coming soon!
+## More projects coming soon!
 
 <!--
 ---
