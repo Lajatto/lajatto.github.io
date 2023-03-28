@@ -2,8 +2,6 @@
 
 ---
 
-### Mac's Portfolio
-
 [Website Traffic Analysis using SQL](/sample_page)
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
