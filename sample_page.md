@@ -1,6 +1,16 @@
-## TSQL Website Traffic Analysis
+## SQL Website Traffic Analysis
 
 **Project description:** Website traffic analysis using SQL. Pulling monthly trends, checking the performance of various campaigns, checking conversion rates of landing pages, and doing full funnel conversion analysis. 
+
+## The dataset that is used here is comprised of the following tables: 
+<ul>
+  <li>order_items_refunds</li>
+  <li>order_items</li>
+  <li>orders</li>
+  <li>products</li>
+  <li>website_pageviews</li>
+  <li>website_sessions</li>
+</ul>
 
 ### 1. Suggest hypotheses about the causes of observed phenomena
 
