@@ -164,6 +164,7 @@ GROUP BY
 <img src="images/Q5.jpg?raw=true"/>
 
 ### 6. Comparing conversion rate between two landing pages for a set period of time. 
+	
 ```SQL
 SELECT
 MIN(website_pageview_id) AS first_test_pv
@@ -191,7 +192,7 @@ GROUP BY
 -- next, we'll bring in the landing page to each session, like last time, but restricting to home or lander-1 this time
 CREATE TEMPORARY TABLE nonbrand_test_sessions_w_landing_pages
 SELECT 
-	first_test_pageviews.website_session_id, 
+    first_test_pageviews.website_session_id, 
     website_pageviews.pageview_url AS landing_page
 FROM first_test_pageviews
 	LEFT JOIN website_pageviews 
@@ -203,7 +204,7 @@ WHERE website_pageviews.pageview_url IN ('/home','/lander-1');
 -- then we make a table to bring in orders
 CREATE TEMPORARY TABLE nonbrand_test_sessions_w_orders
 SELECT
-	nonbrand_test_sessions_w_landing_pages.website_session_id, 
+    nonbrand_test_sessions_w_landing_pages.website_session_id, 
     nonbrand_test_sessions_w_landing_pages.landing_page, 
     orders.order_id AS order_id
 
@@ -332,5 +333,40 @@ GROUP BY 1;
 <a href="https://lookerstudio.google.com/reporting/863ed3b7-3916-4bd0-bade-d8f4db1f9b21">
 <img src="images/Q7.jpg?raw=true"/>
 
+### 8. Revenue per billing page. Comparing two versions of the website's billing page. 
+```SQL
+CREATE TEMPORARY TABLE billing_pagezz
+SELECT 
+	website_sessions.website_session_id, 
+    website_pageviews.pageview_url, 
+    website_pageviews.created_at AS pageview_created_at,
+    CASE WHEN website_pageviews.pageview_url = '/billing' THEN 1 ELSE 0 END as billing_page,
+    CASE WHEN website_pageviews.pageview_url = '/billing-2' THEN 1 ELSE 0 END as billing2_page,
+    CASE WHEN website_pageviews.pageview_url = '/thank-you-for-your-order' THEN 1 ELSE 0 END as ty_page
+FROM 
+	website_sessions
+		LEFT JOIN website_pageviews 
+			ON website_sessions.website_session_id = website_pageviews.website_session_id
+WHERE 
+	website_sessions.created_at BETWEEN '2012-09-10' AND '2012-11-10'
+    AND website_pageviews.pageview_url IN ('/billing', '/billing-2')
+ORDER BY 
+	1, 3;
+
+SELECT 
+	MONTH(billing_pagezz.pageview_created_at) AS month,
+    billing_pagezz.pageview_url,
+	COUNT(billing_pagezz.website_session_id) AS sessions,
+    SUM(orders.price_usd) AS total_sales,
+    SUM(orders.items_purchased) AS total_goods_sold
+FROM 
+	billing_pagezz
+		LEFT JOIN orders
+			ON billing_pagezz.website_session_id = orders.website_session_id
+GROUP BY 
+	1,2;
+```
+<a href="https://lookerstudio.google.com/reporting/80eeec39-cb33-4408-8951-e6b411af94d5">
+<img src="images/Q8.jpg?raw=true"/>
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
