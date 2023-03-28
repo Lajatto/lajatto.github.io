@@ -18,7 +18,7 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
 
 ```SQL
 SELECT
-	YEAR(website_sessions.created_at) AS year,
+    YEAR(website_sessions.created_at) AS year,
     MONTH(website_sessions.created_at) AS month, 
     COUNT(DISTINCT website_sessions.website_session_id) AS monthly_sessions,
     COUNT(orders.items_purchased) AS total_orders
