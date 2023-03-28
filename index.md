@@ -4,7 +4,7 @@
 
 ### SQL
 
-[Website Traffic Analysis using SQL](project_1.md)
+[Website Traffic Analysis using SQL](https://lajatto.github.io/website_traffic_analysis/)
 <img src="images/website-analysis.jpg?raw=true"/>
 
 ---
