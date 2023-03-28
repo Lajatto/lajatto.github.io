@@ -36,12 +36,24 @@ GROUP BY
 <img src="images/Q1.jpg?raw=true"/>
 </a>
 
-### 2. Assess assumptions on which statistical inference will be based
+### 2. Similar monthly trend for gsearch but splitting out the brand and nonbrand campaigns. 
 
-```javascript
-if (isAwesome){
-  return true
-}
+```SQL
+SELECT
+	website_sessions.utm_campaign,
+    MONTH(website_sessions.created_at) AS month, 
+    COUNT(DISTINCT website_sessions.website_session_id) AS monthly_sessions,
+    COUNT(orders.items_purchased) AS total_orders
+FROM 
+	website_sessions 
+		LEFT JOIN orders 
+			ON website_sessions.website_session_id = orders.website_session_id 
+WHERE 
+	website_sessions.utm_source = 'gsearch'
+    AND website_sessions.created_at < '2012-11-27'
+    AND website_sessions.utm_campaign IN ('nonbrand', 'brand')
+GROUP BY 
+	1, 2;
 ```
 
 ### 3. Support the selection of appropriate statistical tools and techniques
