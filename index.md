@@ -6,7 +6,7 @@
 <img src="images/website-analysis.jpg?raw=true"/>
 
 ---
-[Using R to help a bike sharing company understand their data](https://www.kaggle.com/code/macbenedicto/google-data-analytics-program-capstone-project-1/notebook)
+[Using R to help a bike sharing company understand their data - Google Data Analytics Program Capstone Project](https://www.kaggle.com/code/macbenedicto/google-data-analytics-program-capstone-project-1)
 <img src="images/maxresdefault.jpg?raw=true"/>
 
 ---
