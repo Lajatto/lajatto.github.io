@@ -101,6 +101,8 @@ WHERE
 GROUP BY 
 	1, 2;
 ```
+<a href="https://lookerstudio.google.com/reporting/4ab05325-c81c-479e-8698-d547e7378491">
+<img src="images/Q4.jpg?raw=true"/>
 
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
