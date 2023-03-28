@@ -176,7 +176,7 @@ WHERE pageview_url = '/lander-1';
 
 CREATE TEMPORARY TABLE first_test_pageviews
 SELECT
-	website_pageviews.website_session_id, 
+    website_pageviews.website_session_id, 
     MIN(website_pageviews.website_pageview_id) AS min_pageview_id
 FROM website_pageviews 
 	INNER JOIN website_sessions 
@@ -216,7 +216,7 @@ SELECT * FROM nonbrand_test_sessions_w_orders;
 
 -- to find the difference between conversion rates 
 SELECT
-	landing_page, 
+    landing_page, 
     COUNT(DISTINCT website_session_id) AS sessions, 
     COUNT(DISTINCT order_id) AS orders,
     COUNT(DISTINCT order_id)/COUNT(DISTINCT website_session_id) AS conv_rate
@@ -226,6 +226,111 @@ GROUP BY 1;
 <a href="https://lookerstudio.google.com/reporting/9e891676-bb7f-4846-8346-c123f061a3db">
 <img src="images/Q6.jpg?raw=true"/>
 
+### 7. Full conversion funnel for the two landing pages analyzed in item 5. 
+	
+```SQL
+SELECT
+    website_sessions.website_session_id, 
+    website_pageviews.pageview_url, 
+    -- website_pageviews.created_at AS pageview_created_at, 
+    CASE WHEN pageview_url = '/home' THEN 1 ELSE 0 END AS homepage,
+    CASE WHEN pageview_url = '/lander-1' THEN 1 ELSE 0 END AS custom_lander,
+    CASE WHEN pageview_url = '/products' THEN 1 ELSE 0 END AS products_page,
+    CASE WHEN pageview_url = '/the-original-mr-fuzzy' THEN 1 ELSE 0 END AS mrfuzzy_page, 
+    CASE WHEN pageview_url = '/cart' THEN 1 ELSE 0 END AS cart_page,
+    CASE WHEN pageview_url = '/shipping' THEN 1 ELSE 0 END AS shipping_page,
+    CASE WHEN pageview_url = '/billing' THEN 1 ELSE 0 END AS billing_page,
+    CASE WHEN pageview_url = '/thank-you-for-your-order' THEN 1 ELSE 0 END AS thankyou_page
+FROM website_sessions 
+	LEFT JOIN website_pageviews 
+		ON website_sessions.website_session_id = website_pageviews.website_session_id
+WHERE website_sessions.utm_source = 'gsearch' 
+	AND website_sessions.utm_campaign = 'nonbrand' 
+    AND website_sessions.created_at < '2012-07-28'
+		AND website_sessions.created_at > '2012-06-19'
+ORDER BY 
+	website_sessions.website_session_id,
+    website_pageviews.created_at;
+
+
+CREATE TEMPORARY TABLE session_level_made_it_flagged
+SELECT
+	website_session_id, 
+    MAX(homepage) AS saw_homepage, 
+    MAX(custom_lander) AS saw_custom_lander,
+    MAX(products_page) AS product_made_it, 
+    MAX(mrfuzzy_page) AS mrfuzzy_made_it, 
+    MAX(cart_page) AS cart_made_it,
+    MAX(shipping_page) AS shipping_made_it,
+    MAX(billing_page) AS billing_made_it,
+    MAX(thankyou_page) AS thankyou_made_it
+FROM(
+SELECT
+    website_sessions.website_session_id, 
+    website_pageviews.pageview_url, 
+    -- website_pageviews.created_at AS pageview_created_at, 
+    CASE WHEN pageview_url = '/home' THEN 1 ELSE 0 END AS homepage,
+    CASE WHEN pageview_url = '/lander-1' THEN 1 ELSE 0 END AS custom_lander,
+    CASE WHEN pageview_url = '/products' THEN 1 ELSE 0 END AS products_page,
+    CASE WHEN pageview_url = '/the-original-mr-fuzzy' THEN 1 ELSE 0 END AS mrfuzzy_page, 
+    CASE WHEN pageview_url = '/cart' THEN 1 ELSE 0 END AS cart_page,
+    CASE WHEN pageview_url = '/shipping' THEN 1 ELSE 0 END AS shipping_page,
+    CASE WHEN pageview_url = '/billing' THEN 1 ELSE 0 END AS billing_page,
+    CASE WHEN pageview_url = '/thank-you-for-your-order' THEN 1 ELSE 0 END AS thankyou_page
+FROM website_sessions 
+	LEFT JOIN website_pageviews 
+		ON website_sessions.website_session_id = website_pageviews.website_session_id
+WHERE website_sessions.utm_source = 'gsearch' 
+	AND website_sessions.utm_campaign = 'nonbrand' 
+    AND website_sessions.created_at < '2012-07-28'
+		AND website_sessions.created_at > '2012-06-19'
+ORDER BY 
+	website_sessions.website_session_id,
+    website_pageviews.created_at
+) AS pageview_level
+
+GROUP BY 
+	website_session_id
+;
+
+-- then this would produce the final output, part 1
+SELECT
+	CASE 
+	WHEN saw_homepage = 1 THEN 'saw_homepage'
+        WHEN saw_custom_lander = 1 THEN 'saw_custom_lander'
+        ELSE 'uh oh... check logic' 
+	END AS segment, 
+    COUNT(DISTINCT website_session_id) AS sessions,
+    COUNT(DISTINCT CASE WHEN product_made_it = 1 THEN website_session_id ELSE NULL END) AS to_products,
+    COUNT(DISTINCT CASE WHEN mrfuzzy_made_it = 1 THEN website_session_id ELSE NULL END) AS to_mrfuzzy,
+    COUNT(DISTINCT CASE WHEN cart_made_it = 1 THEN website_session_id ELSE NULL END) AS to_cart,
+    COUNT(DISTINCT CASE WHEN shipping_made_it = 1 THEN website_session_id ELSE NULL END) AS to_shipping,
+    COUNT(DISTINCT CASE WHEN billing_made_it = 1 THEN website_session_id ELSE NULL END) AS to_billing,
+    COUNT(DISTINCT CASE WHEN thankyou_made_it = 1 THEN website_session_id ELSE NULL END) AS to_thankyou
+FROM session_level_made_it_flagged 
+GROUP BY 1
+;
+
+
+-- then this as final output part 2 - click rates
+
+SELECT
+	CASE 
+	WHEN saw_homepage = 1 THEN 'saw_homepage'
+        WHEN saw_custom_lander = 1 THEN 'saw_custom_lander'
+        ELSE 'uh oh... check logic' 
+	END AS segment, 
+	COUNT(DISTINCT CASE WHEN product_made_it = 1 THEN website_session_id ELSE NULL END)/COUNT(DISTINCT website_session_id) AS lander_click_rt,
+    COUNT(DISTINCT CASE WHEN mrfuzzy_made_it = 1 THEN website_session_id ELSE NULL END)/COUNT(DISTINCT CASE WHEN product_made_it = 1 THEN website_session_id ELSE NULL END) AS products_click_rt,
+    COUNT(DISTINCT CASE WHEN cart_made_it = 1 THEN website_session_id ELSE NULL END)/COUNT(DISTINCT CASE WHEN mrfuzzy_made_it = 1 THEN website_session_id ELSE NULL END) AS mrfuzzy_click_rt,
+    COUNT(DISTINCT CASE WHEN shipping_made_it = 1 THEN website_session_id ELSE NULL END)/COUNT(DISTINCT CASE WHEN cart_made_it = 1 THEN website_session_id ELSE NULL END) AS cart_click_rt,
+    COUNT(DISTINCT CASE WHEN billing_made_it = 1 THEN website_session_id ELSE NULL END)/COUNT(DISTINCT CASE WHEN shipping_made_it = 1 THEN website_session_id ELSE NULL END) AS shipping_click_rt,
+    COUNT(DISTINCT CASE WHEN thankyou_made_it = 1 THEN website_session_id ELSE NULL END)/COUNT(DISTINCT CASE WHEN billing_made_it = 1 THEN website_session_id ELSE NULL END) AS billing_click_rt
+FROM session_level_made_it_flagged
+GROUP BY 1;
+```
+<a href="https://lookerstudio.google.com/reporting/863ed3b7-3916-4bd0-bade-d8f4db1f9b21">
+<img src="images/Q7.jpg?raw=true"/>
 
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
