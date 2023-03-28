@@ -2,7 +2,7 @@
 
 ---
 
-[Website Traffic Analysis using SQL](/project_1)
+[Website Traffic Analysis using SQL](/[project_1](https://github.com/Lajatto/mac.benedicto.github.io/blob/master/project_1.md))
 <img src="images/website-analysis.jpg?raw=true"/>
 
 ---
