@@ -12,9 +12,9 @@
   <li>website_sessions</li>
 </ul>
 
-### 1. Suggest hypotheses about the causes of observed phenomena
+### 1.  Pull monthly trends for gsearch sessions and orders so that we can showcase the growth here.
 
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+Limitations: Request was made on 2012-11-27. 
 
 ```SQL
 SELECT
@@ -32,6 +32,7 @@ WHERE
 GROUP BY 
 	1,2;
 ```
+<img src="images/Q1.jpg?raw=true"/>
 
 ### 2. Assess assumptions on which statistical inference will be based
 
