@@ -9,6 +9,7 @@
 [Using R to help a bike sharing company understand their data - Google Data Analytics Program Capstone Project](https://www.kaggle.com/code/macbenedicto/google-data-analytics-program-capstone-project-1)
 <img src="images/maxresdefault.jpg?raw=true"/>
 
+<!--
 ---
 [Project 3 Title](http://example.com/)
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
@@ -31,3 +32,4 @@
 ---
 <p style="font-size:11px">Page template forked from <a href="https://github.com/evanca/quick-portfolio">evanca</a></p>
 <!-- Remove above link if you don't want to attibute -->
+
