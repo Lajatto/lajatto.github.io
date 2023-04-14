@@ -8,7 +8,7 @@
 <img src="images/website-analysis.jpg?raw=true"/>
 
 [ECommerse Website Product Analysis using SQL](https://lajatto.github.io/website_traffic_analysis/)
-<img src="images/website-analysis.jpg?raw=true"/>
+<img src="images/ecommerce.jpg?raw=true"/>
 
 ---
 
