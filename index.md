@@ -7,7 +7,7 @@
 [Website Traffic Analysis using SQL](https://lajatto.github.io/website_traffic_analysis/)
 <img src="images/website-analysis.jpg?raw=true"/>
 
-[ECommerse Website Product Analysis using SQL](https://lajatto.github.io/website_traffic_analysis/)
+[ECommerse Website Product Analysis using SQL](https://lajatto.github.io/website_traffic_analysis/](https://lajatto.github.io/ecommerce_analysis/)
 <img src="images/ecommerce.png?raw=true"/>
 
 ---
