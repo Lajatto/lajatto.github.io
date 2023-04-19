@@ -17,6 +17,12 @@
 <img src="images/maxresdefault.jpg?raw=true"/>
 
 ---
+
+### Telling Stories Through Data 
+[Studying the Top Three Countries of Origin of Study and Foreign Work Permit Holders in Canada from 2015 - 2022](https://lajatto.github.io/immigration_canada/)
+<img src=>
+
+---
 ### More projects coming soon! 🐍
 
 <!--
