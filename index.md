@@ -25,7 +25,7 @@
 ---
 ### Python
 [Data cleaning and analysis using Python + building a sales dashboard in Tableau](https://public.tableau.com/authoring/ValueIncSales_16820587557630/Sheet1/Dashboard%201#1)
-<img src=
+<img src="images/sales_1.png?raw=true">
 
 <!--
 ---
