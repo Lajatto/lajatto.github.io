@@ -24,12 +24,14 @@
 
 ---
 ### Python
-[Data cleaning and analysis using Python + building a sales dashboard in Tableau](https://lajatto.github.io/value_inc_sales/)
+[Data Cleaning and Analysis Using Python + Building a Sales dashboard in Tableau](https://lajatto.github.io/value_inc_sales/)
 <img src="images/sales_1.png?raw=true">
 
-[Loans analysis using Python and Tableau to determine how risky a bank's current borrowers are](https://lajatto.github.io/blue_bank_loan_analysis/)
+[Bank Loans Analysis using Python](https://lajatto.github.io/blue_bank_loan_analysis/)
 <img src="images/bank.jpg?raw=true">
 
+[Sentiment Analysis using VADER NLP](https://lajatto.github.io/blogme/)
+<img src="images/news.png?raw=true">
 <!--
 ---
 [Project 3 Title](http://example.com/)
