@@ -24,7 +24,7 @@
 
 ---
 ### Python
-[Data cleaning and analysis using Python + building a sales dashboard in Tableau](https://public.tableau.com/views/ValueIncSales_16820587557630/Dashboard1?:language=en-GB&:display_count=n&:origin=viz_share_link)
+[Data cleaning and analysis using Python + building a sales dashboard in Tableau](https://lajatto.github.io/value_inc_sales/)
 <img src="images/sales_1.png?raw=true">
 
 <!--
