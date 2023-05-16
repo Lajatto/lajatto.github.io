@@ -27,6 +27,9 @@
 [Data cleaning and analysis using Python + building a sales dashboard in Tableau](https://lajatto.github.io/value_inc_sales/)
 <img src="images/sales_1.png?raw=true">
 
+[Loans analysis using Python and Tableau to determine how risky a bank's current borrowers are](https://lajatto.github.io/blue_bank_loan_analysis/)
+<img src="images/bank.jpg?raw=true">
+
 <!--
 ---
 [Project 3 Title](http://example.com/)
