@@ -4,7 +4,7 @@
 
 ### ChatGPT + Python Data Analysis
 
-[Data Cleaning and Analysis using ChatGPt to Generate Python Codes](https://www.kaggle.com/code/macbenedicto/chatgpt-python-data-analysis)
+[Data Cleaning and Analysis using ChatGPT to Generate Python Codes](https://www.kaggle.com/code/macbenedicto/chatgpt-python-data-analysis)
 <img src="images/python.png?raw=true"/>
 
 ---
