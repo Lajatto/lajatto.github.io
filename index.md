@@ -2,6 +2,13 @@
 
 ---
 
+### ChatGPT + Python Data Analysis
+
+[Data Cleaning and Analysis using ChatGPt to Generate Python Codes](https://www.kaggle.com/macbenedicto/chatgpt-python-data-analysis)
+<img src="images/website-analysis.jpg?raw=true"/>
+
+---
+
 ### SQL
 
 [Website Traffic Analysis using SQL](https://lajatto.github.io/website_traffic_analysis/)
